@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import *
 import time
-
+import random
 def clear_window():
     for widget in root.winfo_children():
         widget.destroy()
@@ -18,7 +18,13 @@ Pl = tk.Label(root, text="Witaj w Poker appie twoim własnym asystencie przy grz
 Pl.pack()
 
 def get_hand_ranking(hand):
-    return 'High Card'
+    hand = random.randint(1, 8)
+    if hand == 1 or 2 or 3:
+        return 'Royal Flush'
+    elif hand == 4 or 5 or 6:
+        return 'Flush'
+    else:
+        return 'Two Pair'
 
 def get_decision(hand, language):
     hand_ranking = get_hand_ranking(hand)
